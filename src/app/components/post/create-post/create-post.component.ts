@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Post } from 'src/app/models/post.model';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class CreatePostComponent {
 
   createPostForm!: FormGroup;
 
-  constructor(private fBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any,private usersService: UsersService) {
+  constructor(private fBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: Post,private usersService: UsersService) {
     this.initForm();
   }
 
@@ -42,14 +43,14 @@ export class CreatePostComponent {
 
   savedPost() {
 
-    const post = {
+    const post: Post = {
       userId: this.data.userId,
       title: this.createPostForm.get("title")?.value,
-      description: this.createPostForm.get("description")?.value
+      body: this.createPostForm.get("description")?.value
     }
 
     this.usersService.createPost(post).subscribe(
-      (post) => {
+      (post: Post) => {
         if(post) {
           this.createPostResult.emit(true);
         } else {

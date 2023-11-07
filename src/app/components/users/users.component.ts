@@ -1,6 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Post } from 'src/app/models/post.model';
+import { User } from 'src/app/models/user.model';
+import { LoginService } from 'src/app/services/login.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -19,16 +22,20 @@ export class UsersComponent implements OnInit{
   @ViewChild("modalCreatePost") modalCreatePost!: TemplateRef<any>;
   dialogRef!: MatDialogRef<any>;
 
-  dataSource: any = [];
+  dataSource: User[] = [];
   columnsToDisplay: any = {name: 'Nombre',username: 'Username',address: 'Dirección', email: 'Correo',phone: 'Phone number'};
   columnsToData = ['name', 'username', 'address', 'email', 'phone'];
   columnsToDisplayWithExpand = [...this.columnsToData, 'expand'];
-  expandedElement!: PeriodicElement | null;
+  expandedElement!: User | null;
 
-  posts: any = []
+  posts: Post[] = [];
 
-  constructor(private usersService: UsersService, public dialog: MatDialog) {
-
+  constructor(
+    private usersService: UsersService,
+    public dialog: MatDialog, 
+    private loginService: LoginService
+    ) {
+      this.loginService.verifySession();
   }
 
   ngOnInit(): void {
@@ -37,17 +44,15 @@ export class UsersComponent implements OnInit{
 
   getUsers() {
     this.usersService.getUsers().subscribe(
-      (user) => {
-        console.log(user)
+      (user: User[]) => {
         this.dataSource = user;
       }
     );
   }
 
   getPost(id: number) {
-    console.log(id)
     this.usersService.getPostsByUser(id).subscribe(
-      (posts) => {       
+      (posts: Post[]) => {       
         this.posts = posts;
       }
     );
@@ -66,13 +71,9 @@ export class UsersComponent implements OnInit{
     }
   }
 
-}
+  closeSession() {
+    this.loginService.closeSession();
+  }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
 }
 

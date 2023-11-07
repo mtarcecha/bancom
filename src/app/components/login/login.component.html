@@ -11,7 +11,7 @@
     
                 <mat-form-field appearance="outline">
                     <mat-label>Correo electrinico</mat-label>
-                    <input matInput formControlName="email" required>
+                    <input matInput formControlName="email">
                     <mat-error *ngIf="loginForm.get('email')?.invalid">{{getErrorMessageEmail()}}</mat-error>
                 </mat-form-field>
     
@@ -25,7 +25,9 @@
                     <mat-error *ngIf="loginForm.get('password')?.invalid">{{getErrorMessagePassword()}}</mat-error>
                 </mat-form-field>
 
-                <button class="button--primary" mat-raised-button color="primary" [disabled]="loginForm.invalid">Ingresar</button>
+                <mat-error *ngIf="errorLogin">{{errorLogin}}</mat-error>
+
+                <button class="button--primary" mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Ingresar</button>
                 <button class="button--secondary" mat-raised-button>
                     <img src="../../../assets/icons/Google.svg">
                     Ingresar con google</button>
