@@ -1,0 +1,37 @@
+
+.footer {
+    display: flex;
+    flex-wrap: wrap; 
+    background: #000000;
+    padding: 64px 112px;
+}
+
+
+.footer-info {
+    width: 40%;
+}
+
+.list {
+    gap: 20px;
+    display: flex;
+    list-style: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0;
+}
+
+.stores {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__text {
+        color: #D1D5DB;
+    }
+
+    &__img {
+        width: 130px;
+    }
+}

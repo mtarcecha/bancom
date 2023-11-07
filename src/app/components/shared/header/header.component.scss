@@ -1,0 +1,68 @@
+.content {
+    background-image: url('../../../../assets/img/Background.png');
+    background-size:  cover;  
+    padding: 24px 112px;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+
+    &__option {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+
+.presentation {
+    display: flex;
+    padding: 72px 0 0 0;
+    justify-content: space-between;
+}
+
+.info {
+
+    width: 60%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 96px 48px 0 0;
+
+    &__title {
+        font-size: 60px;
+        color: #111827;
+        font-weight: 700;
+        line-height: 100%;
+    }
+
+    &__description {
+        font-size: 18px;
+        color: #374151;
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.cellphone {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+
+    &__image {
+        height: 640px;
+    }
+}
