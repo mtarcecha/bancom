@@ -16,6 +16,13 @@ const routes: Routes = [
         (m) => m.LoginModule
       ),
   },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./components/users/users.module').then(
+        (m) => m.UsersModule
+      ),
+  },
 ];
 
 @NgModule({
