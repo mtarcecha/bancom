@@ -24,8 +24,15 @@
                     </button>
                     <mat-error *ngIf="loginForm.get('password')?.invalid">{{getErrorMessagePassword()}}</mat-error>
                 </mat-form-field>
-
                 <mat-error *ngIf="errorLogin">{{errorLogin}}</mat-error>
+            
+                <div class="forget-password">
+                    <span>¿Olvidaste tu contraseña?</span>
+                </div>
+
+                <div class="">
+                    <mat-checkbox class="example-margin">Recordar correo</mat-checkbox>
+                </div>
 
                 <button class="button--primary" mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Ingresar</button>
                 <button class="button--secondary" mat-raised-button>

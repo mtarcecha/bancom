@@ -26,6 +26,12 @@
     @include media(tablet) {
         width: 75%;
     }
+
+    &__copyright {
+        font-size: 14px;
+        font-weight: 400;
+        color: #D1D5DB;
+    }
 }
 
 .list {

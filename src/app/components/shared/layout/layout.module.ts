@@ -4,6 +4,9 @@ import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { HeaderModule } from '../header/header.module';
 import { FooterModule } from '../footer/footer.module';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -15,7 +18,10 @@ import { FooterModule } from '../footer/footer.module';
     CommonModule,
     LayoutRoutingModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class LayoutModule { }

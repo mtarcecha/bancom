@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -7,6 +9,17 @@
 
     &__image {
         height: 100vh;
+        @include media(tablet) {
+            width: 100%;
+        }
+    }
+
+    @include media(mobile) {
+        display: none;
+    }
+
+    @include media(tablet) {
+        width: 50%;
     }
 }
 
@@ -32,4 +45,9 @@
         font-weight: 700;
         color: #1A202C;
     }
+}
+
+.forget-password {
+    text-align: right;
+    color: #2c5282;
 }
