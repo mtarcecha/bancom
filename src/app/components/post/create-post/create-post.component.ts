@@ -2,7 +2,7 @@ import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Post } from 'src/app/models/post.model';
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-create-post',
@@ -51,7 +51,7 @@ export class CreatePostComponent {
 
     this.usersService.createPost(post).subscribe(
       (post: Post) => {
-        if(post) {
+        if(post?.id) {
           this.createPostResult.emit(true);
         } else {
           this.createPostResult.emit(false);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -23,14 +23,14 @@ export class LoginComponent {
     if (this.loginForm.get('email')?.invalid) {
       return 'Email invalido';
     }
-    return ''
+    return '';
   }
 
   getErrorMessagePassword() {
     if (this.loginForm.get('password')?.invalid) {
       return 'Contraseña obligatoria';
     }
-    return ''
+    return '';
   }
 
   initForm() {

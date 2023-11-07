@@ -3,8 +3,8 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Post } from 'src/app/models/post.model';
 import { User } from 'src/app/models/user.model';
-import { LoginService } from 'src/app/services/login.service';
-import { UsersService } from 'src/app/services/users.service';
+import { LoginService } from 'src/app/services/login/login.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-users',
