@@ -1,14 +1,31 @@
+@import '../../../../styles.scss';
 
 .footer {
     display: flex;
     flex-wrap: wrap; 
     background: #000000;
     padding: 64px 112px;
+
+    @include media(mobile) {
+        padding: 40px 20px;
+    }
+
+    @include media(tablet) {
+        padding: 40px 40px;
+    }
 }
 
 
 .footer-info {
     width: 40%;
+
+    @include media(mobile) {
+        width: 100%;
+    }
+
+    @include media(tablet) {
+        width: 75%;
+    }
 }
 
 .list {
@@ -19,6 +36,10 @@
     font-size: 16px;
     font-weight: 400;
     padding: 0;
+
+    @include media(mobile) {
+        flex-wrap: wrap;
+    }
 }
 
 .stores {
@@ -33,5 +54,23 @@
 
     &__img {
         width: 130px;
+    }
+
+    @include media(mobile) {
+        width: 100%;
+    }
+
+    @include media(tablet) {
+        width: 25%;
+    }
+}
+
+.hide-mobile {
+    @include media(mobile) {
+        display: none;
+    }
+
+    @include media(tablet) {
+        display: none;
     }
 }

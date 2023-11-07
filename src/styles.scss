@@ -3,6 +3,23 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+
+@mixin media($media) {
+    @if $media == mobile {
+      @media (max-width: ($breakpoint-tablet - 1)) {
+        @content;
+      }
+    } @else if $media == tablet {
+      @media (min-width: $breakpoint-tablet) and (max-width: ($breakpoint-laptop - 1)) {
+        @content;
+      }
+    } 
+  }
+  
+
+
 .button {
 
     &--primary {
