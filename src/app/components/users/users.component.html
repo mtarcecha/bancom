@@ -1,0 +1,61 @@
+<div class="user">
+  <button class="button--primary" mat-raised-button color="primary" (click)="closeSession()">Cerrar sesion</button>
+</div>
+
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToData">
+    <th mat-header-cell *matHeaderCellDef> {{columnsToDisplay[column]}} </th>
+    <ng-container *ngIf="column !== 'address'" >
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+    <ng-container *ngIf="column === 'address'" >
+      <td mat-cell *matCellDef="let element"> {{element[column].street}} {{element[column].suite}} {{element[column].city}}</td>
+    </ng-container>    
+  </ng-container>
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation(); getPost(element.id)">
+        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="button-post" *ngIf="posts.length > 0; else notPost">
+            <button class="button--primary" mat-raised-button color="primary" (click)="openCreatePost(element.id)">Crear un post</button>
+        </div>
+        <ng-template #notPost>
+            <div class="button-not-post">
+                <p class="button-not-post__text">Aún no tienes posts</p>
+                <button class="button--primary" mat-raised-button color="primary" (click)="openCreatePost(element.id)">Crear un post</button>
+            </div> 
+        </ng-template>
+        
+        <div class="post" *ngFor="let item of posts">
+          <div class="post__title"> {{item.title}} </div>
+          <div class="post__description"> {{item.body}} </div>          
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="(expandedElement = expandedElement === element ? null : element); getPost(element.id)">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+
+<ng-template #modalCreatePost>
+    <div class="modal">
+        <app-create-post (createPostResult)="showResult($event)"></app-create-post>
+    </div>
+</ng-template>

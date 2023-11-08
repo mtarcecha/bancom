@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Input("sidenavRef") sidenavRef: any;
+
+  constructor(private router: Router) {
+    
+  }
+
+  goToLogin() {
+    this.router.navigateByUrl('/login')
+  }
+
+  openSidenav() {
+    this.sidenavRef.open() 
+  }
 
 }

@@ -1,0 +1,40 @@
+@import '../../../../styles.scss';
+
+.create-post {
+    &__title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+}
+
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.container {
+    margin: 0 auto;
+}
+
+.login  {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &__title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #1A202C;
+    }
+}

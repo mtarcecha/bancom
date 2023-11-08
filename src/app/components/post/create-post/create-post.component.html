@@ -1,0 +1,21 @@
+<div class="create-post">
+    <div class="create-post__title">Crear post</div>
+    <form class="form" [formGroup]="createPostForm" >
+        <mat-form-field appearance="outline">
+            <mat-label>Titulo</mat-label>
+            <input matInput formControlName="title" required>
+            <mat-error *ngIf="createPostForm.get('title')?.invalid">{{getErrorMessageTitle()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <input matInput formControlName="description" required>
+            <mat-error *ngIf="createPostForm.get('description')?.invalid">{{getErrorMessageDescription()}}</mat-error>
+        </mat-form-field>
+
+        <button class="button--primary" mat-raised-button color="primary" [disabled]="createPostForm.invalid" (click)="savedPost()">Guardar</button>
+        
+    </form>
+</div>
+
+
