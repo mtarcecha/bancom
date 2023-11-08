@@ -1,0 +1,134 @@
+@import '../../../../styles.scss';
+
+.content {
+    background-image: url('../../../../assets/img/Background.png');
+    background-size:  cover;  
+    padding: 24px 112px;
+
+    @include media(mobile) {
+        background-image: url('../../../../assets/img/Background-mobile.png');
+        padding: 16px 20px;
+    }
+
+    @include media(tablet) {
+        background-image: url('../../../../assets/img/Background-tablet.png');
+        padding: 20px 40px;
+    }
+      
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+
+    &__options {        
+        gap: 10px;
+
+        @include media(mobile) {
+            display: none;
+        }
+
+        @include media(tablet) {
+            display: none;
+        }
+    }
+}
+
+.buttons-menu {
+    display: flex;
+    gap: 20px;
+
+    @include media(mobile) {
+        display: none;
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.sidenav {
+    display: none;
+
+    @include media(mobile) {
+        display: block;
+    }
+
+    @include media(tablet) {
+        display: block;
+    }
+}
+
+
+.presentation {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 72px 0 0 0;
+    justify-content: space-between;
+}
+
+.info {
+
+    width: 60%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 96px 48px 0 0;
+
+    &__title {
+        font-size: 60px;
+        color: #111827;
+        font-weight: 700;
+        line-height: 100%;
+
+        @include media(mobile) {
+            font-size: 36px;
+        }
+    
+        @include media(tablet) {
+            font-size: 48px;
+        }
+    }
+
+    &__description {
+        font-size: 18px;
+        color: #374151;
+    }
+
+    
+    @include media(mobile) {
+        width: 100%;
+        padding: 0;
+    }
+
+    @include media(tablet) {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.cellphone {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+
+    &__image {
+        height: 640px;
+    }
+
+    @include media(mobile) {
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    @include media(tablet) {
+        width: 100%;
+        padding-top: 40px;
+    }
+}

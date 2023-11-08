@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="header">
+        <div class="menu">
+            <div class="menu__logo">
+                <img src="../../../../assets/img/Logo.svg">
+            </div>
+            <div class="menu__options">
+                <button mat-button>Features</button>
+                <button mat-button>Pricing</button>
+                <button mat-button>Careers</button>
+                <button mat-button>Ayuda</button>
+            </div>
+        </div>
+        <div class="buttons-menu">
+            <button class="button--primary" mat-raised-button color="primary" (click)="goToLogin()">Iniciar sesión</button>
+            <button class="button--secondary" mat-raised-button>Registrate</button>
+        </div>
+        <div class="sidenav">
+            <button mat-icon-button class="example-icon" (click)="openSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="presentation">
+        <div class="info">
+            <h1 class="info__title">The easiest way to manage projects</h1>
+            <p class="info__description">From the small stuff to the big picture, organizes the work so teams know what
+                to do, why it matters, and how to get it done.</p>
+            <div class="buttons">
+                <button class="button--primary" mat-raised-button color="primary">Get Started</button>
+                <button class="button--secondary" mat-raised-button>
+                    <mat-icon>play_circle_outline</mat-icon>
+                    Watch Video
+                </button>
+            </div>
+        </div>
+        <div class="cellphone">
+            <img class="cellphone__image" src="../../../../assets/img/Phone.png">
+        </div>
+    </div>
+</div>

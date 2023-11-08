@@ -1,0 +1,31 @@
+
+
+
+<mat-sidenav-container  class="example-container" (backdropClick)="close()">
+  <mat-sidenav #sidenav (keydown.escape)="close()" disableClose position="end">
+  
+    <div class="menu">
+        <button mat-icon-button class="example-icon" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <button class="only-mobile button--primary" mat-raised-button color="primary" (click)="goToLogin()">Iniciar sesión</button>
+        <button class="only-mobile button--secondary" mat-raised-button>Registrate</button>
+
+        <button mat-button>Features</button>
+        <button mat-button>Pricing</button>
+        <button mat-button>Careers</button>
+        <button mat-button>Ayuda</button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>    
+    <div class="content">
+        <app-header [sidenavRef]="sidenav"></app-header>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

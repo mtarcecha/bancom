@@ -1,0 +1,46 @@
+<div class="content">
+    <div class="image">
+        <img class="image__image" src="../../../assets/img/Mountain.png">
+    </div>
+    <div class="container">
+
+        <div class="login">
+            <form class="form" [formGroup]="loginForm" >
+                <span class="form__welcome">Bienvenido</span>
+                <h3 class="form__title">Inicia sesión</h3>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo electrinico</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-error *ngIf="loginForm.get('email')?.invalid">{{getErrorMessageEmail()}}</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.get('password')?.invalid">{{getErrorMessagePassword()}}</mat-error>
+                </mat-form-field>
+                <mat-error *ngIf="errorLogin">{{errorLogin}}</mat-error>
+            
+                <div class="forget-password">
+                    <span>¿Olvidaste tu contraseña?</span>
+                </div>
+
+                <div class="">
+                    <mat-checkbox class="example-margin">Recordar correo</mat-checkbox>
+                </div>
+
+                <button class="button--primary" mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Ingresar</button>
+                <button class="button--secondary" mat-raised-button>
+                    <img src="../../../assets/icons/Google.svg">
+                    Ingresar con google</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>

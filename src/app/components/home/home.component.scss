@@ -1,0 +1,174 @@
+@import '../../../styles.scss';
+
+.features {
+    padding: 96px 112px;
+
+    @include media(mobile) {
+        padding: 0 20px;
+    }
+
+    @include media(tablet) {
+        padding: 0 40px;
+    }
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 64px;
+
+    &__title{
+        font-size: 48px;
+        font-weight: 700;
+        color: #111827;
+
+        @include media(mobile) {
+            font-size: 36px;
+        }
+    
+        @include media(tablet) {
+            font-size: 36px;
+        }
+    }
+
+    &__description {
+        font-size: 18px;
+        font-weight: 400;
+        color: #111827;        
+    }
+}
+
+.list-features {
+    display: flex;
+    flex-wrap: wrap;   
+    row-gap: 64px;
+    justify-content: space-between;
+}
+
+.feature {
+    width: 30%;
+    text-align: center;
+
+    &__title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+
+        @include media(mobile) {
+            font-size: 24px;
+        }
+    
+        @include media(tablet) {
+            font-size: 24px;
+        }
+    }
+
+    &__description {
+        font-size: 16px;
+        font-weight: 400;
+        color: #374151;
+    }
+
+    @include media(mobile) {
+        width: 100%;
+    }
+
+    @include media(tablet) {
+        width: 45%;
+    }
+}
+
+.metrics {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px 112px;
+
+    @include media(mobile) {
+        padding: 80px 20px;
+    }
+
+    @include media(tablet) {
+        padding: 80px 40px;
+    }
+}
+
+.years {
+    width: 50%;
+
+    &__title {
+        width: 60%;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 100%;
+
+        @include media(mobile) {
+            width: 100%;
+            font-size: 30px;
+        }
+    
+        @include media(tablet) {
+            width: 100%;
+            font-size: 36px;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    @include media(mobile) {
+        width: 100%;
+    }
+
+    @include media(tablet) {
+        width: 100%;
+    }
+}
+
+.metrics-list {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    width: 50%;
+
+    @include media(mobile) {
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    @include media(tablet) {
+        width: 100%;
+        padding-top: 40px;
+    }
+}
+
+.metrics-data  {
+    display: flex;
+    width: 45%;
+
+    &__image {
+        margin-right: 15px;
+    }
+
+    @include media(mobile) {
+        width: 100%;
+    }
+
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    color: #111827;
+    gap: 15px;
+
+    &__number {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    &__text {
+        font-size: 16px;
+        font-weight: 400;
+    }
+}

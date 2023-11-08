@@ -1,0 +1,32 @@
+@import '../../../../styles.scss';
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    // left: 0;
+    right: 0;
+}
+  
+.menu {
+    padding: 0 20px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.only-mobile {
+
+    display: none;
+
+    @include media(mobile) {
+        display: block;
+    }
+}
