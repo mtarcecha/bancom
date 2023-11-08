@@ -36,8 +36,8 @@ export class LoginComponent {
   initForm() {
 
     this.loginForm = this.fBuilder.group({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required])
+      email: new FormControl('demo@demo.com', [Validators.required, Validators.email]),
+      password: new FormControl('demo', [Validators.required])
     })
 
   }
